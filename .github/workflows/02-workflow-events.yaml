@@ -20,4 +20,4 @@ jobs:
           echo "Event name: ${{ github.event_name }}"
       
       - name: Run test update
-        run: sudo apt install openssh -y
+        run: sudo apt install telnet -y
