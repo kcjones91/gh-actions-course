@@ -1,11 +1,23 @@
 name: 02 - Workflow Events
 
-on: push
+on: 
+  push:
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 8 * * *'
 
 jobs:
   echo:
     runs-on: ubuntu-latest
     steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Show the trigger
         run: |
           echo "Event name: ${{ github.event_name }}"
+      
+      - name: Run test update
+        run: apt install openssh -y
